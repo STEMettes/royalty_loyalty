@@ -10,3 +10,5 @@ deploy:
     staging: stemettes-staging
   on:
     repo: STEMettes/royalty_loyalty
+before_script:
+  - psql -c 'create database stemettes_test;' -U postgres
