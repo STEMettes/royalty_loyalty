@@ -1,3 +1,12 @@
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: DB3t5OynCGTYr9xQDM5Jj1gvpTN675Ih7Ufb1+o7I1QgCer1S3QcKPOKsnnXTpzMHltgILxoBHwW/Xm0CeurIhCJ9GeLTvBlcKcKi1moyfrM7w78sYzB8Em3WcqY3r0KPEKZvbWFM6m+dM9Kap6bBRaQucR/LmVAFIR9Wlsnm0w=
+  app:
+    master: stemettes-master
+    staging: stemettes-staging
+  on:
+    repo: STEMettes/royalty_loyalty
