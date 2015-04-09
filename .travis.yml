@@ -1,15 +1,16 @@
 language: ruby
 rvm:
 - 2.2.0
-before_script:
-- psql -c 'create database stemettes_test;' -U postgres
 deploy:
   provider: heroku
   api_key:
     secure: Fr4GGxMWU6R9sg5CZzXa+j81k5ok/XGOoI7XJoKN7VWXMj6WMcnWDv5F8HQJ4bTGtRv0x32ajI4K4E+8bdbGlS5F8lS6osFRFF1nc7OOIPwizmtSp/QSXLpdWPZwTLPfQ0n1teNqkP89z1cJtOA1gDtf6zos6f3EH+rI/LUYdng=
   app:
-   master: stemettes-master
-   staging: stemettes-staging
- on:
-   repo: STEMettes/royalty_loyalty
+    master: stemettes-master
+    staging: stemettes-staging
+  on:
+    repo: STEMettes/royalty_loyalty
+before_script:
+  - psql -c 'create database stemettes_test;' -U postgres
+
 
