@@ -42,7 +42,8 @@ context "user signed in on the homepage" do
   context "user clicks on name in header" do
     it "navigates to correct user profile" do
       click_link('test@example.com')
-      expect(current_path).to eq '/users/1'
+      user = User.find_by(email: 'test@example.com')
+      expect(current_path).to eq "/users/#{user.id}"
     end
   end
 
