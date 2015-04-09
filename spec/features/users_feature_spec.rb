@@ -23,14 +23,14 @@ context "user signed in on the homepage" do
     fill_in('Password confirmation', with: 'testtest')
     fill_in('Dob', with: '1987-06-03')
     fill_in('Username', with: 'test')
-    fill_in('Name', with: 'Test Test')
+    fill_in('Name', with: 'Stem Ette')
     fill_in('County', with: 'Essex')
     click_button('Sign up')
   end
 
   it "should see 'sign out' link" do
-    visit('/')
     expect(page).to have_link('Sign out')
+    expect(page).to have_link('test@example.com')
   end
 
   it "should not see a 'sign in' link and a 'sign up' link" do
@@ -38,4 +38,13 @@ context "user signed in on the homepage" do
     expect(page).not_to have_link('Sign in')
     expect(page).not_to have_link('Sign up')
   end
+
+  context "user clicks on name in header" do
+    it "navigates to correct user profile" do
+      click_link('test@example.com')
+      expect(current_path).to eq '/users/1'
+    end
+  end
+
+
 end
