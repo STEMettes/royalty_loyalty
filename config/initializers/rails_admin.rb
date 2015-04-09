@@ -1,5 +1,20 @@
 RailsAdmin.config do |config|
 
+  config.model 'User' do
+    list do
+      field :name
+      field :username
+      field :email
+      field :DOB
+      field :county
+      field :password
+      field :password_confirmation
+      field :admin
+    end
+
+  end
+
+
   ### Popular gems integration
 
   ## == Devise ==
