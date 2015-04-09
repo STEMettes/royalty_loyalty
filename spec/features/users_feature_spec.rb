@@ -26,6 +26,7 @@ context "user signed in on the homepage" do
     fill_in('Name', with: 'Stem Ette')
     fill_in('County', with: 'Essex')
     click_button('Sign up')
+    @user = User.find_by(name: 'Stem Ette')
   end
 
   it "should see 'sign out' link" do
@@ -42,8 +43,8 @@ context "user signed in on the homepage" do
   context "user clicks on name in header" do
     it "navigates to correct user profile" do
       click_link('Stem')
-      user = User.find_by(name: 'Stem Ette')
-      expect(current_path).to eq "/users/#{user.id}"
+
+      expect(current_path).to eq "/users/#{@user.id}"
     end
 
     it "displays the users details" do
@@ -56,10 +57,18 @@ context "user signed in on the homepage" do
       expect(page).to have_content("0 pts")
     end
 
-    it "dispalays a link to edit user details" do
+    it "displays a link to edit user details" do
       click_link('Stem')
       expect(page).to have_link('Edit your profile')
     end
+
+  context "clicking on 'Edit your profile'" do
+    it "navigates to edit page" do
+      click_link('Stem')
+      click_link('Edit your profile')
+      expect(current_path).to eq "/users/#{@user.id}/edit"
+    end
+  end
 
   end
 
