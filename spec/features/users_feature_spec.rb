@@ -30,7 +30,7 @@ context "user signed in on the homepage" do
 
   it "should see 'sign out' link" do
     expect(page).to have_link('Sign out')
-    expect(page).to have_link('test@example.com')
+    expect(page).to have_link('Stem')
   end
 
   it "should not see a 'sign in' link and a 'sign up' link" do
@@ -41,11 +41,29 @@ context "user signed in on the homepage" do
 
   context "user clicks on name in header" do
     it "navigates to correct user profile" do
-      click_link('test@example.com')
-      user = User.find_by(email: 'test@example.com')
+      click_link('Stem')
+      user = User.find_by(name: 'Stem Ette')
       expect(current_path).to eq "/users/#{user.id}"
     end
+
+    it "displays the users details" do
+      click_link('Stem')
+      expect(page).to have_content("Stem Ette")
+      expect(page).to have_content("test")
+      expect(page).to have_content("1987-06-03")
+      expect(page).to have_content("test@example.com")
+      expect(page).to have_content("Essex")
+      expect(page).to have_content("0 pts")
+    end
+
+    it "dispalays a link to edit user details" do
+      click_link('Stem')
+      expect(page).to have_link('Edit your profile')
+    end
+
   end
+
+
 
 
 end
