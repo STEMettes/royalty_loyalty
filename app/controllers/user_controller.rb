@@ -1,8 +1,5 @@
 class UserController < ApplicationController
 
-  before_action :authenticate_user!, :except => [:index]
-
-
   def create
     User.create(user_params)
   end
