@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'checkin' => 'welcome#checkin'
   post 'checkin' => 'welcome#post_action'
+  get 'survey' => 'survey#survey'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
