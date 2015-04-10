@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'cancan'
 gem 'rails_admin'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
