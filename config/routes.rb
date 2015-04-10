@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'registrations' }
-  root 'welcome#index'
+  root 'welcome#pre_signin'
+  get 'home' => 'welcome#home'
   get 'checkin' => 'welcome#checkin'
   post 'checkin' => 'welcome#post_action'
   get 'survey' => 'survey#survey'
