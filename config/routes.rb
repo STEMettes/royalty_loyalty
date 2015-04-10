@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'registrations' }
-  root 'welcome#index'
+  root 'welcome#pre_signin'
+  get 'home' => 'welcome#home'
   get 'checkin' => 'welcome#checkin'
   post 'checkin' => 'welcome#post_action'
   get 'survey' => 'survey#survey'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :users
 
   # Example resource route with options:
   #   resources :products do

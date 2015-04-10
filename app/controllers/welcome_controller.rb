@@ -1,5 +1,11 @@
 class WelcomeController < ApplicationController
-  def index
+  def home
+  end
+
+  def pre_signin
+    if current_user
+      redirect_to home_path
+    end
   end
 
   def post_action
@@ -12,7 +18,6 @@ class WelcomeController < ApplicationController
   end
 
   def checkin
-
   end
 
 end

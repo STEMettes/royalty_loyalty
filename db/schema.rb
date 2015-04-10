@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150410105137) do
     t.string   "name"
     t.string   "county"
     t.boolean  "admin",                  default: false
+    t.integer  "points",                 default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
