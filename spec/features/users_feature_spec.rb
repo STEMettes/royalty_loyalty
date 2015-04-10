@@ -40,6 +40,13 @@ context "user signed in on the homepage" do
     expect(page).not_to have_link('Sign up')
   end
 
+  it "should see current points" do
+    expect(page).to have_content('0 pts')
+    @user.add(10)
+    visit('/home')
+    expect(page).to have_content('10 pts')
+  end
+
   context "user clicks on name in header" do
     it "navigates to correct user profile" do
       click_link('Stem')

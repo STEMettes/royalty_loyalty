@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
     self.name.split[0]
   end
 
+  def add(points)
+    self.points += points
+  end
+
 end
