@@ -66,8 +66,29 @@ context "user signed in on the homepage" do
     it "navigates to edit page" do
       click_link('Stem')
       click_link('Edit your profile')
-      expect(current_path).to eq "/users/#{@user.id}/edit"
+      expect(current_path).to eq "/users/edit"
     end
+
+    it "allows a user to edit their email address" do
+      click_link('Stem')
+      click_link('Edit your profile')
+      fill_in('Email', with: 'change@example.com')
+      fill_in('Current password', with: 'testtest')
+      click_button('Update')
+      click_link('Stem')
+      expect(page).to have_content("change@example.com")
+    end
+
+    it "allows a user to edit their county" do
+      click_link('Stem')
+      click_link('Edit your profile')
+      fill_in('County', with: 'Worcestershire')
+      fill_in('Current password', with: 'testtest')
+      click_button('Update')
+      click_link('Stem')
+      expect(page).to have_content("Worcestershire")
+    end
+
   end
 
   end
