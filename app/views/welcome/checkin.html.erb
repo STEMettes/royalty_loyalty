@@ -2,6 +2,8 @@
 Please enter event code
 <form action='/checkin' method="POST">
   <input type="text" name="SecretCode">
+  <input name="user_name" type="hidden" value=current_user.id>
+
   <input type="submit" value="Submit">
   </form>
 
