@@ -10,15 +10,16 @@ class WelcomeController < ApplicationController
   end
 
   def post_action
-    test = Event.find_by(:code => params[:SecretCode])
+    current_event = Event.find_by(:code => params[:SecretCode])
 
-    if test != nil && params[:SecretCode] == Event.find_by(:code => params[:SecretCode]).code then
+    if current_event != nil && params[:SecretCode] == Event.find_by(:code => params[:SecretCode]).code then
 
-      # Survey.create(:event_id => test.id, :user_id => user_session.id)
+      Survey.create(:event_id => current_event.id, :user_id => current_user.id)
 
     redirect_to survey_path
     else
       flash[:notice] = 'Incorrect event code please try again'
+      redirect_to checkin_path
     end
   end
 
