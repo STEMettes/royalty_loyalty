@@ -14,7 +14,8 @@ class WelcomeController < ApplicationController
 
     if current_event != nil && params[:SecretCode] == Event.find_by(:code => params[:SecretCode]).code then
 
-      Survey.create(:event_id => current_event.id, :user_id => current_user.id)
+      Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'pre-event')
+
 
     redirect_to survey_path
     else
