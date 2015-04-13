@@ -1,13 +1,10 @@
 <h1>Event Check In</h1>
 Please enter event code
-<form action='checkin' method="post">
-  <input type="text" name="SecretCode">
-  <input type="submit" value="Submit">
+
+<%= form_tag '/checkin'  do %>
+    <input type="text" name="SecretCode">
+    <input type="submit" value="Submit">
   </form>
-
-
-
-
-
+<% end %>
 
 
