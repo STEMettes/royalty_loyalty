@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'typeform'
 gem 'cancan'
 gem 'rails_admin'
 gem 'devise'
