@@ -4,5 +4,8 @@ class SurveyController < ApplicationController
 
   end
 
+  def confirm
+
+  end
 
 end
