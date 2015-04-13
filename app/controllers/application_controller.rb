@@ -5,4 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, :except => [:pre_signin, :post_action]
 
+  def admin_auth
+    if current_user.admin == true then
+      redirect_to rails_admin_path
+    end
+  end
+
 end
