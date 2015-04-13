@@ -29,4 +29,7 @@ class WelcomeController < ApplicationController
   def checkin
   end
 
+
+
+
 end
