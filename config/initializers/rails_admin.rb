@@ -4,6 +4,8 @@ RailsAdmin.config do |config|
     redirect_to main_app.root_path unless current_user.admin == true
   end
 
+  config.current_user_method(&:current_user)
+
   config.model 'User' do
     list do
       field :name
