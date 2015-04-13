@@ -1,6 +1,9 @@
 class WelcomeController < ApplicationController
 
   def home
+    if current_user.admin == true then
+      redirect_to rails_admin_path
+    end
   end
 
   def pre_signin
