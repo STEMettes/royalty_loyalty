@@ -2,26 +2,41 @@
 <html>
 <head>
   <title>Stemettes</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 </head>
 <body>
 
-<% if user_signed_in? %>
-  <%= link_to "#{current_user.first_name}", user_path(current_user.id) %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <% if user_signed_in? %>
+    <header>
+      <nav class="navbar navbar-fixed-top">
+        <%= link_to image_tag("crown-logo.png"), home_path, id: "home-link" %>
+        <div id="profile-section">
+          <%= link_to image_tag("default-profile-pic.png"), user_path(current_user.id), id: "profile-pic" %><br/>
+          <%= link_to "#{current_user.first_name}", user_path(current_user.id), id: "username-link" %>
+        </div>
+        <%= link_to image_tag("signout-icon.png"), destroy_user_session_path, method: :delete, id: "signout-link" %>
+      </nav>
+    </header>
+
+    <%= yield %>
 
   <% else %>
-  <%= link_to "Sign in", new_user_session_path %>
-  <%= link_to "Sign up", new_user_registration_path %>
-<% end %>
 
-<%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= yield %>
 
+    <section id="button-panel">
+      <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %><br/>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+    </section>
+  <% end %>
 
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
 </body>
 </html>

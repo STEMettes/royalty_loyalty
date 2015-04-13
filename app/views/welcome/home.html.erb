@@ -1,4 +1,9 @@
-<h2><%= current_user.points %> pts</h2>
+<section id="hero-banner">
+  <h3>You've earned</h3>
+  <h2><%= current_user.points %> pts</h2>
+</section>
 
-<%= link_to "check in", '/checkin'%>
-<%= link_to "check out" %>
+<section id="button-panel">
+  <button class="btn btn-primary"><%= link_to "check in", '/checkin'%></button><br/>
+  <button class="btn btn-primary"><%= link_to "check out" %></button>
+</section>

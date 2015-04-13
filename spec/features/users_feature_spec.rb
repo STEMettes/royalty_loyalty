@@ -9,7 +9,7 @@ context "user not signed in and on the homepage" do
 
   it "should not see 'sign out' link" do
     visit('/')
-    expect(page).not_to have_link('Sign out')
+    expect(page).not_to have_link('signout-link')
   end
 end
 
@@ -30,7 +30,7 @@ context "user signed in on the homepage" do
   end
 
   it "should see 'sign out' link" do
-    expect(page).to have_link('Sign out')
+    expect(page).to have_link('signout-link')
     expect(page).to have_link('Stem')
   end
 

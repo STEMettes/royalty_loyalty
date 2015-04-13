@@ -1,3 +1,34 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+  background-color: #28899b;
+  text-align: center;
+}
+
+#hero-banner {
+  text-align: center;
+  margin-top: -20px;
+}
+
+#hero-banner h3 {
+  color: white;
+  padding-top: 30px;
+}
+
+#hero-banner h2 {
+  color: white;
+  font-size: 4em;
+  padding-bottom: 30px; ;
+}
+
+#button-panel {
+  background-color: white;
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+  margin-top: 60px;
+  height: 200px;
+}
