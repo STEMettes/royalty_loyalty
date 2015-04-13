@@ -1,3 +1,15 @@
+<style>
+  #button-panel {
+    display: none;
+  }
+  #main-logo {
+    width: 140px;
+    height: 102px;
+  }
+</style>
+
+<img src="/assets/crown-logo.png" id="main-logo">
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -5,7 +17,7 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
@@ -15,7 +27,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
