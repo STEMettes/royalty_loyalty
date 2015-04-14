@@ -17,12 +17,7 @@ class SurveyController < ApplicationController
     Typeform.api_key = '88fa7f827f874aa8512352011772a7b0fbc2eeac'
     typeform_id = "hWbC8o"
     form = Typeform::Form.new(typeform_id)
-
-    all_entries = form.all_entries
-    incomplete_entries = form.incomplete_entries
-    complete_entries = form.complete_entries
-
-    # Fetches all complete entries since today
+    # Fetches all complete entries since one hour ago
     newest_entries = form.complete_entries(since: (Time.now - 60).to_i)
     return newest_entries
   end
