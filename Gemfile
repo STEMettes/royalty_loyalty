@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'rmagick'
 gem 'paperclip'
 gem 'typeform'
 gem 'cancan'
