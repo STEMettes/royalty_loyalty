@@ -5,10 +5,10 @@ class PostSurveyController < ApplicationController
   def post_confirm
     answers = find_answers
     current_user.surveys.last.update(:Q1 => answers[0], :Q2 => answers[1], :Q3 => answers[2], :Q4 => answers[3], :Q5 => answers[4])
+    current_user.add(40)
   end
 
-  def post_event_post_survey
-  end
+
 
 
    def api_call

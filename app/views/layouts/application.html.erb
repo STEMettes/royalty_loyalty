@@ -16,7 +16,7 @@
       <nav class="navbar navbar-fixed-top">
         <%= link_to image_tag("crown-logo.png"), home_path, id: "home-link" %>
         <div id="profile-section">
-          <%= link_to image_tag("default-profile-pic.png"), user_path(current_user.id), id: "profile-pic" %><br/>
+          <%= link_to image_tag(current_user.avatar.url(:thumb), class: "img-circle"), user_path(current_user.id), id: "profile-pic" %><br/>
           <%= link_to "#{current_user.first_name}", user_path(current_user.id), id: "username-link" %>
         </div>
         <%= link_to image_tag("signout-icon.png"), destroy_user_session_path, method: :delete, id: "signout-link" %>
