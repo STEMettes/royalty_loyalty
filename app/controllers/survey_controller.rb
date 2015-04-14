@@ -10,7 +10,8 @@ class SurveyController < ApplicationController
   end
 
   def confirm
-    current_user.surveys.last.update(:Q1 => find_answer1, :Q2 => find_answer2, :Q3 => find_answer3, :Q4 => find_answer4, :Q5 => find_answer5)
+    answers = find_answers
+    current_user.surveys.last.update(:Q1 => answers[0], :Q2 => answers[1], :Q3 => answers[2], :Q4 => answers[3], :Q5 => answers[4])
   end
 
   def api_call
@@ -22,42 +23,15 @@ class SurveyController < ApplicationController
     return newest_entries
   end
 
-  def find_answer1
+  def find_answers
     api_call.responses.each do |response|
       if response.answers.email_6109000 == current_user.email
-        return response.answers.rating_6099488
-      end
-    end
-  end
-
-  def find_answer2
-    api_call.responses.each do |response|
-      if response.answers.email_6109000 == current_user.email
-        return response.answers.rating_6099515
-      end
-    end
-  end
-
-  def find_answer3
-    api_call.responses.each do |response|
-      if response.answers.email_6109000 == current_user.email
-        return response.answers.rating_6099600
-      end
-    end
-  end
-
-  def find_answer4
-    api_call.responses.each do |response|
-      if response.answers.email_6109000 == current_user.email
-        return response.answers.rating_6099603
-      end
-    end
-  end
-
-  def find_answer5
-    api_call.responses.each do |response|
-      if response.answers.email_6109000 == current_user.email
-        return response.answers.textfield_6099610
+        q1 = response.answers.rating_6099488
+        q2 = response.answers.rating_6099515
+        q3 = response.answers.rating_6099600
+        q4 = response.answers.rating_6099603
+        q5 = response.answers.textfield_6099610
+        return [q1, q2, q3, q4, q5]
       end
     end
   end
