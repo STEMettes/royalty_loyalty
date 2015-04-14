@@ -34,7 +34,7 @@ context "user signed in on the homepage" do
     visit('/checkout')
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
-    expect(current_path).to eq('/post_survey')
+    expect(current_path).to eq('/survey')
   end
 
 
