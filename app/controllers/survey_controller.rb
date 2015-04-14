@@ -23,7 +23,7 @@ class SurveyController < ApplicationController
     complete_entries = form.complete_entries
 
     # Fetches all complete entries since today
-    newest_entries = form.complete_entries(since: Time.now - 60)
+    newest_entries = form.complete_entries(since: (Time.now - 60).to_i)
     return newest_entries
   end
 
