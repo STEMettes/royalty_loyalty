@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
     has_many :events, :through => :surveys
     has_many :surveys
 
+    has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "default-profile-pic.png"
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -11,8 +14,12 @@ class User < ActiveRecord::Base
     self.name.split[0]
   end
 
-  def add(points)
-    self.points += points
+
+
+
+  def add(added_points)
+    self.update(:points => self.points += added_points)
+
   end
 
 end

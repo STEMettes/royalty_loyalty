@@ -3,11 +3,11 @@ require 'typeform'
 class PostSurveyController < ApplicationController
 
   def post_confirm
+    current_user.add(40)
     current_user.surveys.last.update(:Q1 => find_answer1, :Q2 => find_answer2, :Q3 => find_answer3, :Q4 => find_answer4, :Q5 => find_answer5)
   end
 
-  def post_event_post_survey
-  end
+
 
 
    def api_call

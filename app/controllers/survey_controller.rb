@@ -11,6 +11,7 @@ class SurveyController < ApplicationController
 
   def confirm
     current_user.surveys.last.update(:Q1 => find_answer1, :Q2 => find_answer2, :Q3 => find_answer3, :Q4 => find_answer4, :Q5 => find_answer5)
+    current_user.add(20)
   end
 
   def api_call
