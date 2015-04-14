@@ -30,6 +30,22 @@ class WelcomeController < ApplicationController
   end
 
 
+  def post_action_checkout
+
+    current_event = Event.find_by(:code => params[:SecretCode])
+
+    if current_event != nil && params[:SecretCode] == Event.find_by(:code => params[:SecretCode]).code then
+      Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'post-event')
+      redirect_to post_survey_path
+
+    else
+      flash[:notice] = 'Incorrect event code please try again'
+      redirect_to checkout_path
+    end
+  end
+
+
+
 
 
 end
