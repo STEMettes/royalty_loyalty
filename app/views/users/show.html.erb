@@ -1,8 +1,37 @@
-<p> <%= current_user.name %> </p>
-<p> <%= current_user.username %> </p>
-<p> <%= current_user.DOB %> </p>
-<p> <%= current_user.email %> </p>
-<p> <%= current_user.county %> </p>
-<p> <%= current_user.points %> pts </p>
- 
-<%= link_to "Edit your profile", edit_user_registration_path %>
+<section class="form-panel">
+  <ul>
+    <li>
+      <h3>Name:</h3>
+      <p> <%= current_user.name %> </p>
+      <hr/>
+    </li>
+    <li>
+      <h3>Username:</h3>
+      <p> <%= current_user.username %> </p>
+      <hr/>
+    </li>
+    <li>
+      <h3>Date of birth:</h3>
+      <p> <%= current_user.DOB %> </p>
+      <hr/>
+    </li>
+    <li>
+      <h3>Email address:</h3>
+      <p> <%= current_user.email %> </p>
+      <hr/>
+    </li>
+    <li>
+      <h3>County:</h3>
+      <p> <%= current_user.county %> </p>
+      <hr/>
+    </li>
+    <li>
+      <h3>Current points:</h3>
+      <p> <%= current_user.points %> pts </p>
+      <hr/>
+    </li>
+  </ul>
+   
+  <%= link_to "Edit your profile", edit_user_registration_path, class: "btn blue" %>
+
+</section>

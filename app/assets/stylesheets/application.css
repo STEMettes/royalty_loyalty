@@ -18,6 +18,10 @@ body {
   padding-top: 80px;
 }
 
+.alert {
+
+}
+
 .navbar {
   height: 80px;
   background-color: #2a3948;
@@ -58,6 +62,12 @@ body {
   margin-left: 20px;
 }
 
+.img-circle {
+  border: white solid 2px;
+}
+
+/* THE BUTTONS IN PANELS */
+
 #button-panel {
   text-align: center;
 }
@@ -93,4 +103,56 @@ body {
 
 #button-panel .blue:hover {
   background-color: #6FC6FF;
+}
+
+/* THE BUTTONS THAT ARE JUST LINKS AND NOT IN PANELS */
+
+.btn {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 14px;
+  text-decoration: none;
+  width: 150px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.blue {
+  background-color: #1E8BC3;
+  box-shadow: 0px 5px 0px 0px #176993;
+}
+
+.blue:hover {
+  background-color: #6FC6FF;
+}
+
+/* THE FORM PANEL */
+
+.form-panel {
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.form-panel ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.form-panel h3 {
+  text-align: left;
+  font-size: 1.2em;
+  color: #2a3948;
 }
