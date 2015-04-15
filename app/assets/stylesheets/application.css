@@ -56,8 +56,8 @@ body {
 
 #home-link img {
   float: left;
-  height: 26px;
-  width: 35px;
+  height: auto;
+  width: 40px;
   margin-top: 25px;
   margin-left: 20px;
 }
@@ -155,4 +155,8 @@ body {
   text-align: left;
   font-size: 1.2em;
   color: #2a3948;
+}
+
+.form-panel p {
+  font-style: italic;
 }
