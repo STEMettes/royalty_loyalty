@@ -23,7 +23,6 @@ body {
   background-color: #2a3948;
   border-color: #2a3948;
   border-radius: 0px;
-  text-align: center;
 }
 
 #signout-link img {
@@ -36,6 +35,7 @@ body {
 
 #profile-section {
   display: inline-block;
+  float: none;
   padding: 10px;
   margin: 0 auto;
 }
