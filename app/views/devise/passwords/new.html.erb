@@ -1,3 +1,39 @@
+<style>
+  #button-panel {
+    display: none;
+  }
+  
+  #main-logo {
+    width: 140px;
+    height: 102px;
+  }
+
+  .textbox label {
+    width: 150px;
+    text-align: left;
+  }
+
+  .field {
+    margin: 15px 0;
+  }
+
+  .actions {
+    font-style: oblique;
+  }
+
+  footer {
+    color: white;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: underline;
+  }
+
+</style>
+
+<%= link_to image_tag("crown-logo.png", id: "main-logo"), root_path %>
+
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>

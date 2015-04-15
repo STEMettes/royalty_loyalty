@@ -9,6 +9,7 @@ RailsAdmin.config do |config|
   config.model 'User' do
     list do
       field :name
+      field :points
       field :username
       field :email
       field :DOB
@@ -16,6 +17,15 @@ RailsAdmin.config do |config|
       field :password
       field :password_confirmation
       field :admin
+    end
+
+    edit do 
+      configure :password do
+        hide
+      end
+      configure :password_confirmation do 
+        hide
+      end
     end
 
   end
