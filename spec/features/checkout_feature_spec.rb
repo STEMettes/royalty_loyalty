@@ -13,7 +13,7 @@ context "user signed in on the homepage" do
     fill_in('Name', with: 'Test Test')
     fill_in('County', with: 'Essex')
     click_button('Sign up')
-    Event.create(name: 'Hackathon', code: 'Makers')
+    Event.create(name: 'Hackathon', code: 'Makers', date: Date.today)
   end
 
   it "should see check out link" do
@@ -41,7 +41,7 @@ context "user signed in on the homepage" do
     expect(current_path).to eq('/post_survey')
   end
 
-  it 'should not allow a user to checkout if they have not checked-in' do 
+  it 'should not allow a user to checkout if they have not checked-in' do
     visit('/checkout')
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
@@ -49,7 +49,7 @@ context "user signed in on the homepage" do
     expect(current_path).to eq('/checkin')
   end
 
-  it 'should know if the user has previously checked-out of the same event' do 
+  it 'should know if the user has previously checked-out of the same event' do
     visit('/')
     click_link 'check in'
     fill_in 'SecretCode', with: 'Makers'

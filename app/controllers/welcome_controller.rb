@@ -18,10 +18,15 @@ class WelcomeController < ApplicationController
     survey_count = 0
 
     if current_event == nil
-      flash[:notice] = 'Incorrect event code please try again' 
+      flash[:notice] = 'Incorrect event code please try again'
       redirect_to checkin_path
-    elsif 
-
+    elsif Date.today > current_event.date
+      flash[:notice] = 'Sorry, cannot check in to event before it starts'
+      redirect_to checkin_path
+    elsif Date.today < current_event.date
+      flash[:notice] = 'Sorry, Event has expired'
+      redirect_to checkin_path
+    elsif
       for i in (0..current_user.surveys.count - 1)
         if current_event.id == current_user.surveys[i].event.id
           survey_count += 1
@@ -39,6 +44,9 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def expired?
+    Date.today != Event.first.date
+  end
 
   def checkin
   end
@@ -50,7 +58,7 @@ class WelcomeController < ApplicationController
     survey_count = 0
 
     if current_event == nil
-      flash[:notice] = 'Incorrect event code please try again' 
+      flash[:notice] = 'Incorrect event code please try again'
       redirect_to checkout_path
     else
 
@@ -62,13 +70,13 @@ class WelcomeController < ApplicationController
 
       if survey_count == 0
         flash[:notice] = 'You have not yet checked-in to this event'
-        redirect_to checkin_path 
+        redirect_to checkin_path
       elsif survey_count == 1
         Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'post-event')
         redirect_to post_survey_path
       else
         flash[:notice] = 'You have already checked-out of this event'
-        redirect_to checkout_path        
+        redirect_to checkout_path
       end
 
     end
