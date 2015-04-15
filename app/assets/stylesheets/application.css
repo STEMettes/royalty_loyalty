@@ -18,10 +18,6 @@ body {
   padding-top: 80px;
 }
 
-a {
-
-}
-
 .navbar {
   height: 80px;
   background-color: #2a3948;
@@ -73,8 +69,28 @@ a {
 }
 
 #button-panel .btn {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin-top: 23px;
   width: 200px;
-  height: 50px;
-  background-color: #28899b;
-  margin-top: 35px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+#button-panel .btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+#button-panel .blue {
+  background-color: #1E8BC3;
+  box-shadow: 0px 5px 0px 0px #176993;
+}
+
+#button-panel .blue:hover {
+  background-color: #6FC6FF;
 }

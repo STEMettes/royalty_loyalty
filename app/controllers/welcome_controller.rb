@@ -18,7 +18,7 @@ class WelcomeController < ApplicationController
     survey_count = 0
 
     if current_event == nil
-      flash[:notice] = 'Incorrect event code please try again' 
+      flash[:alert] = 'Incorrect event code please try again' 
       redirect_to checkin_path
     elsif 
 
@@ -33,7 +33,7 @@ class WelcomeController < ApplicationController
         Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'pre-event')
         redirect_to survey_path
       else
-        flash[:notice] = 'You have already checked-in to this event'
+        flash[:alert] = 'You have already checked-in to this event'
         redirect_to checkin_path
       end
     end
@@ -50,7 +50,7 @@ class WelcomeController < ApplicationController
     survey_count = 0
 
     if current_event == nil
-      flash[:notice] = 'Incorrect event code please try again' 
+      flash[:alert] = 'Incorrect event code please try again' 
       redirect_to checkout_path
     else
 
@@ -61,13 +61,13 @@ class WelcomeController < ApplicationController
       end
 
       if survey_count == 0
-        flash[:notice] = 'You have not yet checked-in to this event'
+        flash[:alert] = 'You have not yet checked-in to this event'
         redirect_to checkin_path 
       elsif survey_count == 1
         Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'post-event')
         redirect_to post_survey_path
       else
-        flash[:notice] = 'You have already checked-out of this event'
+        flash[:alert] = 'You have already checked-out of this event'
         redirect_to checkout_path        
       end
 
