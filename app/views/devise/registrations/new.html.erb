@@ -17,27 +17,27 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name, autofocus: true, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :DOB %><br />
-    <%= f.date_field :DOB %>
+    <%= f.date_field :DOB, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :county %><br />
-    <%= f.text_field :county %>
+    <%= f.text_field :county, required: true %>
   </div>
 
   <div class="field">
