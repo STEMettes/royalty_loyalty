@@ -15,36 +15,30 @@ class WelcomeController < ApplicationController
   def post_action
 
     current_event = Event.find_by(:code => params[:SecretCode])
+    survey_count = 0
 
-    if current_user.surveys.last != nil
+    if current_event == nil
+      flash[:notice] = 'Incorrect event code please try again' 
+      redirect_to checkin_path
+    elsif 
 
-      last_event_survey = current_user.surveys.last.event.name
+      for i in (0..current_user.surveys.count - 1)
+        if current_event.id == current_user.surveys[i].event.id
+          survey_count += 1
+        end
+      end
 
-      if current_event != nil && params[:SecretCode] == Event.find_by(:code => params[:SecretCode]).code && current_event.name != last_event_survey then
+      if survey_count == 0
+        #this automatically creates a survey without the user needing to complete it. Need to call survey.create on the confirmation page
         Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'pre-event')
         redirect_to survey_path
-
       else
-        if current_event.name == last_event_survey
-          flash[:notice] = 'You have already checked-in to this event'
-        else
-          flash[:notice] = 'Incorrect event code please try again' 
-      end
-        redirect_to checkin_path
-      end
-    
-    else
-
-      if current_event != nil && params[:SecretCode] == Event.find_by(:code => params[:SecretCode]).code
-        Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'pre-event')
-        redirect_to survey_path
-
-      else
-        flash[:notice] = 'Incorrect event code please try again' 
+        flash[:notice] = 'You have already checked-in to this event'
         redirect_to checkin_path
       end
     end
   end
+
 
   def checkin
   end
@@ -53,40 +47,32 @@ class WelcomeController < ApplicationController
   def post_action_checkout
 
     current_event = Event.find_by(:code => params[:SecretCode])
+    survey_count = 0
 
-    if current_user.surveys.last != nil
-
-      last_event_survey = current_user.surveys.last.event.name
-      post_event = current_user.surveys.last.survey_type
-
-      if current_event != nil && params[:SecretCode] == Event.find_by(:code => params[:SecretCode]).code && post_event != 'post-event' then
-        Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'post-event')
-        redirect_to post_survey_path
-
-      else
-        if post_event == 'post-event'
-          flash[:notice] = 'You have already checked-out of this event'
-        else
-          flash[:notice] = 'Incorrect event code please try again' 
-      end
-        redirect_to checkout_path
-      end
-
+    if current_event == nil
+      flash[:notice] = 'Incorrect event code please try again' 
+      redirect_to checkout_path
     else
-      if current_event != nil && params[:SecretCode] == Event.find_by(:code => params[:SecretCode]).code
+
+      for i in (0..current_user.surveys.count - 1)
+        if current_event.id == current_user.surveys[i].event.id
+          survey_count += 1
+        end
+      end
+
+      if survey_count == 0
+        flash[:notice] = 'You have not yet checked-in to this event'
+        redirect_to checkin_path 
+      elsif survey_count == 1
         Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'post-event')
         redirect_to post_survey_path
-
       else
-        flash[:notice] = 'Incorrect event code please try again' 
-        redirect_to checkout_path
+        flash[:notice] = 'You have already checked-out of this event'
+        redirect_to checkout_path        
       end
+
     end
-
-    
   end
-
-
 
 
 end

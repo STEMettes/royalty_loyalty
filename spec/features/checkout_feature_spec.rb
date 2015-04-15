@@ -31,10 +31,37 @@ context "user signed in on the homepage" do
   end
 
     it 'should know when an event code is correct' do
+    visit('/')
+    click_link 'check in'
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
     visit('/checkout')
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
     expect(current_path).to eq('/post_survey')
+  end
+
+  it 'should not allow a user to checkout if they have not checked-in' do 
+    visit('/checkout')
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    expect(page).to have_content 'You have not yet checked-in to this event'
+    expect(current_path).to eq('/checkin')
+  end
+
+  it 'should know if the user has previously checked-out of the same event' do 
+    visit('/')
+    click_link 'check in'
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    visit('/checkout')
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    visit('/checkout')
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    expect(page).to have_content 'You have already checked-out of this event'
+    expect(current_path).to eq('/checkout')
   end
 
 

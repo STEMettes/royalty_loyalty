@@ -45,6 +45,18 @@ context "user signed in on the homepage" do
     expect(current_path).to eq '/survey'
   end
 
+  it 'should know if the user has previously checked-in to the same event' do 
+    visit('/')
+    click_link 'check in'
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    visit('/')
+    click_link 'check in'
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    expect(page).to have_content 'You have already checked-in to this event'
+  end
+
 
 end
 
