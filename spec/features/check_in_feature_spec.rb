@@ -13,7 +13,8 @@ context "user signed in on the homepage" do
     fill_in('Name', with: 'Test Test')
     fill_in('County', with: 'Essex')
     click_button('Sign up')
-    Event.create(name: 'Hackathon', code: 'Makers')
+    Event.create(name: 'Hackathon', code: 'Makers',date: Date.today)
+
   end
 
   it "should see check in link" do
@@ -45,7 +46,7 @@ context "user signed in on the homepage" do
     expect(current_path).to eq '/survey'
   end
 
-  it 'should know if the user has previously checked-in to the same event' do 
+  it 'should know if the user has previously checked-in to the same event' do
     visit('/')
     click_link 'check in'
     fill_in 'SecretCode', with: 'Makers'
