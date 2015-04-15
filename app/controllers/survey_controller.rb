@@ -10,9 +10,13 @@ class SurveyController < ApplicationController
   end
 
   def confirm
-    answers = find_answers
-    current_user.surveys.last.update(:Q1 => answers[0], :Q2 => answers[1], :Q3 => answers[2], :Q4 => answers[3], :Q5 => answers[4])
-    current_user.add(20)
+    if survey_completed?
+      answers = find_answers
+      current_user.surveys.last.update(:Q1 => answers[0], :Q2 => answers[1], :Q3 => answers[2], :Q4 => answers[3], :Q5 => answers[4], :completed => true)
+      current_user.add(20)
+    else
+      redirect_to home_path
+    end
   end
 
   def api_call
@@ -34,6 +38,14 @@ class SurveyController < ApplicationController
         q5 = response.answers.textfield_6099610
         return [q1, q2, q3, q4, q5]
       end
+    end
+  end
+
+  def survey_completed?
+    if current_user.surveys != nil
+      current_user.surveys.last.completed == false
+    else
+      false
     end
   end
 
