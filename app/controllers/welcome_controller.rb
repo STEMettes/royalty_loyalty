@@ -33,7 +33,7 @@ class WelcomeController < ApplicationController
         end
       end
 
-      if survey_count == 0
+      if survey_count == 0 
         #this automatically creates a survey without the user needing to complete it. Need to call survey.create on the confirmation page
         Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'pre-event')
         redirect_to survey_path

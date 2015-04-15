@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
     has_many :events, :through => :surveys
@@ -10,16 +11,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
   def first_name
-    self.name.split[0]
+    if self.name != nil
+      self.name.split[0]
+    end
   end
-
-
-
 
   def add(added_points)
     self.update(:points => self.points += added_points)
-
   end
 
 end
