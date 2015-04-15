@@ -2,10 +2,34 @@
   #button-panel {
     display: none;
   }
+  
   #main-logo {
     width: 140px;
     height: 102px;
   }
+
+  .textbox label {
+    width: 150px;
+    text-align: left;
+  }
+
+  .field {
+    margin: 15px 0;
+  }
+
+  .actions {
+    font-style: oblique;
+  }
+
+  footer {
+    color: white;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: underline;
+  }
+
 </style>
 
 <%= link_to image_tag("crown-logo.png", id: "main-logo"), root_path %>
@@ -13,14 +37,14 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field textbox">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="field textbox">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" %><br/>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -31,8 +55,13 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "other btn beige" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<br/>
+
+<footer>
+  <%= link_to "Sign up", new_registration_path(resource_name) %> &nbsp; | &nbsp; <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+</footer>
+<!-- <%= render "devise/shared/links" %> -->

@@ -97,28 +97,29 @@ body {
 }
 
 #button-panel .blue {
-  background-color: #1E8BC3;
-  box-shadow: 0px 5px 0px 0px #176993;
+  background-color: #28899b;
+  box-shadow: 0px 5px 0px 0px #216f7e;
 }
 
 #button-panel .blue:hover {
-  background-color: #6FC6FF;
+  background-color: #30a4ba;
 }
 
 /* THE BUTTONS THAT ARE JUST LINKS AND NOT IN PANELS */
 
-.btn {
+.other .btn {
   border-radius: 5px;
   padding: 15px 25px;
   font-size: 14px;
   text-decoration: none;
-  width: 150px;
-  color: #fff;
-  position: relative;
+  width: 100px;
+  height: 20px;
+  color: #1E8BC3;
   display: inline-block;
+  font-weight: bold;
 }
 
-.btn:active {
+.other .btn:active {
   transform: translate(0px, 5px);
   -webkit-transform: translate(0px, 5px);
   box-shadow: 0px 1px 0px 0px;
@@ -131,6 +132,15 @@ body {
 
 .blue:hover {
   background-color: #6FC6FF;
+}
+
+.beige {
+  background-color: #d8d0c6;
+  box-shadow: 0px 5px 0px 0px #aaa49c;
+}
+
+.beige:hover {
+  background-color: #ebe2d7;
 }
 
 /* THE FORM PANEL */
