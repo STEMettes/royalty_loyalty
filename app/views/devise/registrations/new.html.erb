@@ -6,6 +6,28 @@
     width: 140px;
     height: 102px;
   }
+
+  .textbox label {
+    width: 150px;
+    text-align: left;
+  }
+
+  .field {
+    margin: 15px 0;
+  }
+
+  .actions {
+    font-style: oblique;
+  }
+
+  footer {
+    color: white;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: underline;
+  }
 </style>
 
 <%= link_to image_tag("crown-logo.png", id: "main-logo"), root_path %>
@@ -15,47 +37,48 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="field textbox">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, required: true %>
   </div>
 
-  <div class="field">
+  <div class="field textbox">
     <%= f.label :username %><br />
     <%= f.text_field :username, required: true %>
   </div>
 
-  <div class="field">
+  <div class="field textbox">
     <%= f.label :email %><br />
     <%= f.email_field :email, required: true %>
   </div>
 
-  <div class="field">
+  <div class="field textbox">
     <%= f.label :DOB %><br />
     <%= f.date_field :DOB, required: true %>
   </div>
 
-  <div class="field">
+  <div class="field textbox">
     <%= f.label :county %><br />
     <%= f.text_field :county, required: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+  <div class="field textbox">
+    <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
+  <div class="field textbox">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "other btn beige" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<br />
+
+<footer>
+  <%= link_to "Already have an account? Sign in here.", new_session_path(resource_name) %>
+</footer>
