@@ -67,7 +67,7 @@ context "user can not sign in before and after the event" do
     fill_in('Email', with: 'test@example.com')
     fill_in('Password', with: 'testtest')
     fill_in('Password confirmation', with: 'testtest')
-    fill_in('Dob', with: '1987-06-03')
+    fill_in('Date of Birth', with: '1987-06-03')
     fill_in('Username', with: 'test')
     fill_in('Name', with: 'Test Test')
     fill_in('County', with: 'Essex')
@@ -78,11 +78,11 @@ context "user can not sign in before and after the event" do
    it 'should prevent the user checking in before the event day' do
     Event.create(name: 'Hackathon', code: 'Makers',date: Date.today - 1.days)
     visit('/')
-    click_link 'check in'
+    click_link 'Check in'
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
     visit ('/')
-    click_link 'check in'
+    click_link 'Check in'
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
     expect(page).to have_content "Sorry, you can't check in to event before it starts"
@@ -92,11 +92,11 @@ context "user can not sign in before and after the event" do
 
     Event.create(name: 'Hackathon', code: 'Makers',date: Date.today + 1.days)
     visit('/')
-    click_link 'check in'
+    click_link 'Check in'
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
     visit ('/')
-    click_link 'check in'
+    click_link 'Check in'
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
     expect(page).to have_content "Sorry, this event code has expired"
