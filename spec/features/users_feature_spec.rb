@@ -3,7 +3,7 @@ require 'rails_helper'
 context "user not signed in and on the homepage" do
   it "should see a 'sign in' link and a 'sign up' link" do
     visit('/')
-    expect(page).to have_link('Sign in')
+    expect(page).to have_link('Log in')
     expect(page).to have_link('Sign up')
   end
 
@@ -21,7 +21,7 @@ context "user signed in on the homepage" do
     fill_in('Email', with: 'test@example.com')
     fill_in('Password', with: 'testtest')
     fill_in('Password confirmation', with: 'testtest')
-    fill_in('Dob', with: '1987-06-03')
+    fill_in('Date of Birth', with: '1987-06-03')
     fill_in('Username', with: 'test')
     fill_in('Name', with: 'Stem Ette')
     fill_in('County', with: 'Essex')

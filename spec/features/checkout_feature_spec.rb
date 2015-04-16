@@ -8,7 +8,7 @@ context "user signed in on the homepage" do
     fill_in('Email', with: 'test@example.com')
     fill_in('Password', with: 'testtest')
     fill_in('Password confirmation', with: 'testtest')
-    fill_in('Dob', with: '1987-06-03')
+    fill_in('Date of Birth', with: '1987-06-03')
     fill_in('Username', with: 'test')
     fill_in('Name', with: 'Test Test')
     fill_in('County', with: 'Essex')
@@ -19,7 +19,7 @@ context "user signed in on the homepage" do
   it "should see check out link" do
     visit('/')
     # click_button('check out')
-    click_link('check out')
+    click_link('Check out')
     expect(page).to have_content('EventCheck Out')
   end
 
@@ -32,7 +32,7 @@ context "user signed in on the homepage" do
 
     it 'should know when an event code is correct' do
     visit('/')
-    click_link 'check in'
+    click_link 'Check in'
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
     visit('/checkout')
@@ -51,7 +51,7 @@ context "user signed in on the homepage" do
 
   it 'should know if the user has previously checked-out of the same event' do
     visit('/')
-    click_link 'check in'
+    click_link 'Check in'
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
     visit('/checkout')
