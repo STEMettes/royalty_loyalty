@@ -40,7 +40,7 @@ context "user signed in on the homepage" do
     expect(page).not_to have_link('Sign up')
   end
 
-  xit "should see current points" do
+  it "should see current points" do
     expect(page).to have_content('0 pts')
     @user.add(10)
     visit('/home')
@@ -68,7 +68,7 @@ context "user signed in on the homepage" do
       click_link('Stem')
       expect(page).to have_link('Edit your profile')
     end
-
+  end
   context "clicking on 'Edit your profile'" do
     it "navigates to edit page" do
       click_link('Stem')
@@ -93,12 +93,5 @@ context "user signed in on the homepage" do
       click_link('Stem')
       expect(page).to have_content("Worcestershire")
     end
-
   end
-
-  end
-
-
-
-
 end

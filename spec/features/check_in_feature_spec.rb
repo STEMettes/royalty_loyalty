@@ -14,7 +14,6 @@ context "user signed in on the homepage" do
     fill_in('County', with: 'Essex')
     click_button('Sign up')
     Event.create(name: 'Hackathon', code: 'Makers',date: Date.today)
-
   end
 
   it "should see check in link" do
@@ -58,7 +57,62 @@ context "user signed in on the homepage" do
     expect(page).to have_content 'You have already checked in to this event'
   end
 
+end
+
+context "user can not sign in before and after the event" do
+
+  before do
+    visit('/')
+    click_link('Sign up')
+    fill_in('Email', with: 'test@example.com')
+    fill_in('Password', with: 'testtest')
+    fill_in('Password confirmation', with: 'testtest')
+    fill_in('Dob', with: '1987-06-03')
+    fill_in('Username', with: 'test')
+    fill_in('Name', with: 'Test Test')
+    fill_in('County', with: 'Essex')
+    click_button('Sign up')
+    # Event.create(name: 'Hackathon', code: 'Makers',date: Date.today - 1.days)
+  end
+
+   it 'should prevent the user checking in before the event day' do
+    Event.create(name: 'Hackathon', code: 'Makers',date: Date.today - 1.days)
+    visit('/')
+    click_link 'check in'
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    visit ('/')
+    click_link 'check in'
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    expect(page).to have_content "Sorry, you can't check in to event before it starts"
+  end
+
+  it 'should prevent the user checking in after the event day' do
+
+    Event.create(name: 'Hackathon', code: 'Makers',date: Date.today + 1.days)
+    visit('/')
+    click_link 'check in'
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    visit ('/')
+    click_link 'check in'
+    fill_in 'SecretCode', with: 'Makers'
+    click_button 'Submit'
+    expect(page).to have_content "Sorry, this event code has expired"
+  end
+
 
 end
+
+
+
+
+
+
+
+
+
+
 
 
