@@ -1,6 +1,9 @@
-Well done - you have checked out
+<section id="button-panel">
 
-You've earned 40 points
+  <h1>Thanks for coming!</h1>
 
-To earn more, don't forget to attend next event!
+  <p>You've checked out of <%= current_user.surveys.last.event.name %> and earned yourself 40 points!</p>
 
+  <p>To earn more, don't forget to attend the next event!</p>
+
+</section>
