@@ -18,13 +18,13 @@ class WelcomeController < ApplicationController
     survey_count = 0
 
     if current_event == nil
-      flash[:alert] = 'Incorrect event code please try again'
+      flash[:alert] = 'Incorrect event code, please try again'
       redirect_to checkin_path
     elsif Date.today > current_event.date
-      flash[:alert] = 'Sorry, cannot check in to event before it starts'
+      flash[:alert] = "Sorry, you can't check in to event before it starts"
       redirect_to checkin_path
     elsif Date.today < current_event.date
-      flash[:alert] = 'Sorry, Event has expired'
+      flash[:alert] = 'Sorry, this event code has expired'
       redirect_to checkin_path
     elsif
       for i in (0..current_user.surveys.count - 1)
@@ -38,7 +38,7 @@ class WelcomeController < ApplicationController
         Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'pre-event')
         redirect_to survey_path
       else
-        flash[:alert] = 'You have already checked-in to this event'
+        flash[:alert] = 'You have already checked in to this event'
         redirect_to checkin_path
       end
     end
@@ -55,13 +55,13 @@ class WelcomeController < ApplicationController
     survey_count = 0
 
     if current_event == nil
-      flash[:alert] = 'Incorrect event code please try again'
+      flash[:alert] = 'Incorrect event code, please try again'
       redirect_to checkout_path
     elsif Date.today > current_event.date
-      flash[:alert] = 'Sorry, cannot check in to event before it starts'
+      flash[:alert] = "Sorry, you can't check in to event before it starts"
       redirect_to checkout_path
     elsif Date.today < current_event.date
-      flash[:alert] = 'Sorry, Event has expired'
+      flash[:alert] = 'Sorry, this event code has expired'
       redirect_to checkout_path
     elsif
       for i in (0..current_user.surveys.count - 1)
@@ -71,13 +71,13 @@ class WelcomeController < ApplicationController
       end
 
       if survey_count == 0
-        flash[:alert] = 'You have not yet checked-in to this event'
+        flash[:alert] = 'You have not yet checked in to this event'
         redirect_to checkin_path
       elsif survey_count == 1
         Survey.create(:event_id => current_event.id, :user_id => current_user.id, :survey_type => 'post-event')
         redirect_to post_survey_path
       else
-        flash[:alert] = 'You have already checked-out of this event'
+        flash[:alert] = 'You have already checked out of this event'
         redirect_to checkout_path
       end
 

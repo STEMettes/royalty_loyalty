@@ -27,7 +27,7 @@ context "user signed in on the homepage" do
     visit('/')
     click_link 'check in'
     expect(current_path).to eq '/checkin'
-    expect(page).to have_content 'Event Check In'
+    expect(page).to have_content 'EventCheck In'
   end
 
   it 'should know when an event code is incorrect' do
@@ -35,7 +35,7 @@ context "user signed in on the homepage" do
     click_link 'check in'
     fill_in 'SecretCode', with: 'Orange'
     click_button 'Submit'
-    expect(page).to have_content 'Incorrect event code please try again'
+    expect(page).to have_content 'Incorrect event code, please try again'
   end
 
   it 'should know when an event code is correct' do
@@ -46,7 +46,7 @@ context "user signed in on the homepage" do
     expect(current_path).to eq '/survey'
   end
 
-  it 'should know if the user has previously checked-in to the same event' do
+  it 'should know if the user has previously checked in to the same event' do
     visit('/')
     click_link 'check in'
     fill_in 'SecretCode', with: 'Makers'
@@ -55,7 +55,7 @@ context "user signed in on the homepage" do
     click_link 'check in'
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
-    expect(page).to have_content 'You have already checked-in to this event'
+    expect(page).to have_content 'You have already checked in to this event'
   end
 
 

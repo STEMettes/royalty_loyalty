@@ -8,6 +8,11 @@ body {
   text-align: center;
 }
 
+h1 {
+  color: white;
+  padding-top: 15px;
+}
+
 #hero-banner {
   text-align: center;
   margin-top: -20px;
@@ -37,9 +42,22 @@ body {
   margin-bottom: 20px;
   width: 200px;
   height: auto;
-
 }
 
 #stemettes-logo {
   margin-bottom: 20px;
+}
+
+.event-code {
+  margin-top: 75px;
+}
+
+.event-code .text-field {
+  position: relative;
+  top: 3px;
+  height: 35px;
+}
+
+.event-code p {
+  font-style: italic;
 }

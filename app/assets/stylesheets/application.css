@@ -19,7 +19,7 @@ body {
 }
 
 .alert {
-
+  display: inline-block;
 }
 
 .navbar {

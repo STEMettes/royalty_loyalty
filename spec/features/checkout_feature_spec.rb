@@ -20,14 +20,14 @@ context "user signed in on the homepage" do
     visit('/')
     # click_button('check out')
     click_link('check out')
-    expect(page).to have_content('Event Check out')
+    expect(page).to have_content('EventCheck Out')
   end
 
   it 'should know when event checkout code is incorrect' do
     visit('/checkout')
     fill_in 'SecretCode', with: 'Orange'
     click_button ('Submit')
-    expect(page).to have_content("Incorrect event code please try again")
+    expect(page).to have_content("Incorrect event code, please try again")
   end
 
     it 'should know when an event code is correct' do
@@ -45,7 +45,7 @@ context "user signed in on the homepage" do
     visit('/checkout')
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
-    expect(page).to have_content 'You have not yet checked-in to this event'
+    expect(page).to have_content 'You have not yet checked in to this event'
     expect(current_path).to eq('/checkin')
   end
 
@@ -60,7 +60,7 @@ context "user signed in on the homepage" do
     visit('/checkout')
     fill_in 'SecretCode', with: 'Makers'
     click_button 'Submit'
-    expect(page).to have_content 'You have already checked-out of this event'
+    expect(page).to have_content 'You have already checked out of this event'
     expect(current_path).to eq('/checkout')
   end
 
