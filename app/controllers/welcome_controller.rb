@@ -58,7 +58,7 @@ class WelcomeController < ApplicationController
       flash[:alert] = 'Incorrect event code, please try again'
       redirect_to checkout_path
     elsif Date.today > current_event.date
-      flash[:alert] = "Sorry, you can't check in to event before it starts"
+      flash[:alert] = "Sorry, you can't check out of this event before it starts"
       redirect_to checkout_path
     elsif Date.today < current_event.date
       flash[:alert] = 'Sorry, this event code has expired'

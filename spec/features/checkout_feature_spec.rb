@@ -30,7 +30,7 @@ context "user signed in on the homepage" do
     expect(page).to have_content("Incorrect event code, please try again")
   end
 
-    it 'should know when an event code is correct' do
+  it 'should know when an event code is correct' do
     visit('/')
     click_link 'check in'
     fill_in 'SecretCode', with: 'Makers'
@@ -63,6 +63,9 @@ context "user signed in on the homepage" do
     expect(page).to have_content 'You have already checked out of this event'
     expect(current_path).to eq('/checkout')
   end
-
-
 end
+
+
+
+
+
