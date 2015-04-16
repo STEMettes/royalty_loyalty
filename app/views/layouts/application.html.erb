@@ -6,8 +6,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
 </head>
 <body>
 
@@ -30,7 +30,7 @@
     <%= yield %>
 
     <section id="button-panel">
-      <%= link_to "Sign in", new_user_session_path, class: "btn blue" %><br/>
+      <%= link_to "Log in", new_user_session_path, class: "btn blue" %><br/>
       <%= link_to "Sign up", new_user_registration_path, class: "btn blue" %>
     </section>
   <% end %>

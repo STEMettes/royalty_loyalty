@@ -13,7 +13,7 @@
   }
 
   .field {
-    margin: 15px 0;
+    margin: 20px 0;
   }
 
   .actions {
@@ -38,7 +38,7 @@
   <%= devise_error_messages! %>
 
   <div class="field textbox">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Full Name" %><br />
     <%= f.text_field :name, autofocus: true, required: true %>
   </div>
 
@@ -53,7 +53,7 @@
   </div>
 
   <div class="field textbox">
-    <%= f.label :DOB %><br />
+    <%= f.label :DOB, "Date of Birth" %><br />
     <%= f.date_field :DOB, required: true %>
   </div>
 
@@ -78,6 +78,7 @@
 <% end %>
 
 <br />
+<hr / style="width: 80%">
 
 <footer>
   <%= link_to "Already have an account? Sign in here.", new_session_path(resource_name) %>
