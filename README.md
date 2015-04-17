@@ -5,3 +5,5 @@ A Makers Academy group project for [STEMettes](http://stemettes.org/) by
 - [Gabe Arafa](https://github.com/GabeMaker)
 - [Riz Ali](https://github.com/RizAli)
 - [Tom Coakes](https://github.com/tomcoakes)
+
+Beta version hosted on [heroku](https://stemettes-staging.herokuapp.com/)
