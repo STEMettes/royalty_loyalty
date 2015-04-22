@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
-
-
+gem 'rmagick'
+gem 'paperclip'
+gem 'typeform'
+gem 'rails_admin'
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -32,7 +35,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
 group :development, :test do
+
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'capybara'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

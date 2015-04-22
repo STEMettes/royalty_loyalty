@@ -13,3 +13,160 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  padding-top: 80px;
+}
+
+.alert {
+  display: inline-block;
+}
+
+.navbar {
+  height: 80px;
+  background-color: #2a3948;
+  border-color: #2a3948;
+  border-radius: 0px;
+}
+
+#signout-link img {
+  float: right;
+  height: 40px;
+  width: 40px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+#profile-section {
+  display: inline-block;
+  float: none;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+#profile-pic img {
+  width: 40px;
+  height: 40px;
+}
+
+#username-link {
+  color: #d8d0c6;
+  font-weight: bold;
+}
+
+#home-link img {
+  float: left;
+  height: auto;
+  width: 40px;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+.img-circle {
+  border: white solid 2px;
+}
+
+/* THE BUTTONS IN PANELS */
+
+#button-panel {
+  text-align: center;
+}
+
+#button-panel a {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#button-panel .btn {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin-top: 23px;
+  width: 200px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+#button-panel .btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+#button-panel .blue {
+  background-color: #28899b;
+  box-shadow: 0px 5px 0px 0px #216f7e;
+}
+
+#button-panel .blue:hover {
+  background-color: #30a4ba;
+}
+
+/* THE BUTTONS THAT ARE JUST LINKS AND NOT IN PANELS */
+
+.other .btn {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 14px;
+  text-decoration: none;
+  width: 100px;
+  height: 20px;
+  color: #1E8BC3;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.other .btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.blue {
+  background-color: #1E8BC3;
+  box-shadow: 0px 5px 0px 0px #176993;
+}
+
+.blue:hover {
+  background-color: #6FC6FF;
+}
+
+.beige {
+  background-color: #d8d0c6;
+  box-shadow: 0px 5px 0px 0px #aaa49c;
+}
+
+.beige:hover {
+  background-color: #ebe2d7;
+}
+
+/* THE FORM PANEL */
+
+.form-panel {
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.form-panel ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.form-panel h3 {
+  text-align: left;
+  font-size: 1.2em;
+  color: #2a3948;
+}
+
+.form-panel p {
+  font-style: italic;
+}

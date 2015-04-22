@@ -1,0 +1,67 @@
+<style>
+
+  #upload {
+    margin: 0 auto;
+    position: relative;
+    left: 40px;
+  }
+
+  .textbox label {
+    width: 150px;
+    text-align: left;
+  }
+
+  .field {
+    margin: 20px 0;
+  }
+
+  .actions {
+    font-style: oblique;
+  }
+
+  footer {
+    color: white;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: underline;
+  }
+
+</style>
+
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group textbox">
+    <%= f.label :avatar, "Upload Your Photo", class: 'control-label' %><br />
+    <%= f.file_field :avatar, id: "upload" %>
+  </div>
+
+  <div class="field textbox">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field textbox">
+    <%= f.label :county %><br />
+    <%= f.text_field :county, autofocus: true %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Update Details", class: "other btn beige" %>
+  </div>
+<% end %>
+
+<br />
+<hr / style="width: 80%">
+
+<footer>
+<%= link_to "Return to Profile", :back %>
+</footer>

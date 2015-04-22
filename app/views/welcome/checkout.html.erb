@@ -1,0 +1,13 @@
+<h1>Event<br/>Check Out</h1>
+
+<section class="event-code">
+
+  <p>Please enter the event code</p>
+
+  <%= form_tag '/checkout'  do %>
+      <input type="text" name="SecretCode", class="text-field">
+      <input type="submit" value="Submit", class="btn beige">
+    </form>
+  <% end %>
+
+</section>

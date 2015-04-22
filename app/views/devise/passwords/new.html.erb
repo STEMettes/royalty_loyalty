@@ -1,0 +1,57 @@
+<style>
+  #button-panel {
+    display: none;
+  }
+  
+  #main-logo {
+    width: 140px;
+    height: 102px;
+  }
+
+  .textbox label {
+    width: 150px;
+    text-align: left;
+  }
+
+  .field {
+    margin: 15px 0;
+  }
+
+  .actions {
+    font-style: oblique;
+  }
+
+  footer {
+    color: white;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: underline;
+  }
+
+</style>
+
+<%= link_to image_tag("crown-logo.png", id: "main-logo"), root_path %>
+
+<h2>Forgot your password?</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field textbox">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions", class: "other btn beige" %>
+  </div>
+<% end %>
+
+<br />
+<hr / style="width: 80%">
+
+<footer>
+  <%= link_to "Sign up", new_registration_path(resource_name) %> &nbsp; | &nbsp; <%= link_to "Log in", new_session_path(resource_name) %>
+</footer>

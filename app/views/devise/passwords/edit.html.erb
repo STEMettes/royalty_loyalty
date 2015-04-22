@@ -1,0 +1,63 @@
+<style>
+  #button-panel {
+    display: none;
+  }
+  
+  #main-logo {
+    width: 140px;
+    height: 102px;
+  }
+
+  .textbox label {
+    width: 150px;
+    text-align: left;
+  }
+
+  .field {
+    margin: 15px 0;
+  }
+
+  .actions {
+    font-style: oblique;
+  }
+
+  footer {
+    color: white;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: underline;
+  }
+
+</style>
+
+<%= link_to image_tag("crown-logo.png", id: "main-logo"), root_path %>
+
+<h2>Change your password</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div class="field textbox">
+    <%= f.label :password, "New password" %><br />
+    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+  </div>
+
+  <div class="field textbox">
+    <%= f.label :password_confirmation, "Confirm new password" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Change my password" %>
+  </div>
+<% end %>
+
+<br />
+<hr / style="width: 80%">
+
+<footer>
+  <%= render "devise/shared/links" %>
+</footer>

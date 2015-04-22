@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  root 'welcome#pre_signin'
+  get 'home' => 'welcome#home'
+  get 'checkin' => 'welcome#checkin'
+  post 'checkin' => 'welcome#post_action'
+  get 'checkout' => 'welcome#checkout'
+  post 'checkout' => 'welcome#post_action_checkout'
+  get 'survey' => 'survey#survey'
+  get 'post_survey' => 'survey#post_survey'
+  get 'post_confirm' => 'post_survey#post_confirm'
+  get 'confirm' => 'survey#confirm'
+  get 'checkout' => 'checkout'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,7 +27,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :users
 
   # Example resource route with options:
   #   resources :products do

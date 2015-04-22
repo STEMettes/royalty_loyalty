@@ -10,6 +10,9 @@ deploy:
     staging: stemettes-staging
   on:
     repo: STEMettes/royalty_loyalty
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake
 before_script:
   - psql -c 'create database stemettes_test;' -U postgres
 
