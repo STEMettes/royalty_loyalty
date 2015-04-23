@@ -6,4 +6,4 @@ A Makers Academy group project for [STEMettes](http://stemettes.org/) by
 - [Riz Ali](https://github.com/RizAli)
 - [Tom Coakes](https://github.com/tomcoakes)
 
-Beta version hosted on [heroku](https://stemettes-staging.herokuapp.com/)
+Beta version hosted on [heroku](https://stemettes-master.herokuapp.com/)
