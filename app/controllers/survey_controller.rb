@@ -23,7 +23,7 @@ class SurveyController < ApplicationController
     typeform_id = "TUqdcR"
     form = Typeform::Form.new(typeform_id)
     # Fetches all complete entries since one hour ago
-    newest_entries = form.complete_entries(since: (Time.now - 60).to_i)
+    newest_entries = form.complete_entries(since: (Time.now - 300).to_i)
     return newest_entries
   end
 
