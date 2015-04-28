@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415162549) do
+ActiveRecord::Schema.define(version: 20150428112052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,28 @@ ActiveRecord::Schema.define(version: 20150415162549) do
     t.string   "Q4"
     t.string   "Q5"
     t.boolean  "completed",   default: false
+    t.string   "Q6"
+    t.string   "Q7"
+    t.string   "Q8"
+    t.string   "Q9"
+    t.string   "Q10"
+    t.string   "Q11"
+    t.string   "Q12"
+    t.string   "Q13"
+    t.string   "Q14"
+    t.string   "Q15"
+    t.string   "Q16"
+    t.string   "Q17"
+    t.string   "Q18"
+    t.string   "Q19"
+    t.string   "Q20"
+    t.string   "Q21"
+    t.string   "Q22"
+    t.string   "Q23"
+    t.string   "Q24"
+    t.string   "Q25"
+    t.string   "Q26"
+    t.string   "Q27"
   end
 
   create_table "users", force: :cascade do |t|
