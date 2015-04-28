@@ -13,8 +13,8 @@ class PostSurveyController < ApplicationController
   end
 
    def api_call
-    Typeform.api_key = '88fa7f827f874aa8512352011772a7b0fbc2eeac'
-    typeform_id = "tZg9UT"
+    Typeform.api_key = ENV["STEMAPI"]
+    typeform_id = "tUizPJ"
     form = Typeform::Form.new(typeform_id)
     # Fetches all complete entries since one hour ago
     newest_entries = form.complete_entries(since: (Time.now - 60).to_i)
